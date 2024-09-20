@@ -1,5 +1,5 @@
 import sqlite3
-from bot.loader import user_db
+from loader import user_db
 
 
 def create_users_db():

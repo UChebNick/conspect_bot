@@ -6,11 +6,10 @@ from bot import user_db
 import threading
 import datetime
 from bot import utils
-from bot.payment_stack import payment
-from bot.msg_stack import audio2text_stack_db as stack
+import payment
+import audio2text_stack_db as stack
 from telebot.types import InlineKeyboardButton, InlineKeyboardMarkup
 from bot.loader import token
-from bot.msg_stack import msg_utils
 bot = telebot.TeleBot(token)
 
 
