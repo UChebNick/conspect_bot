@@ -26,7 +26,7 @@ def start(message):
 
 
 
-@bot.message_handler(commands=['buy_tokens'])
+@bot.message_handler(commands=['add_rubs'])
 def buy_tokens(message):
     bot.send_message(message.chat.id, 'введите количество рублей')
     bot.register_next_step_handler(message, get_num_buy_tokens)
@@ -152,6 +152,9 @@ def handle_model_selection(call):
         stack.update_status(m[1], 1)
         bot.send_message(call.message.chat.id, 'генерация началась')
         while True:
+            if stack.get_data(call.message.chat.id, 5):
+                bot.send_message(call.messge.chat.id, 'у вас недостаточно средств')
+
             time.sleep(2)
             bot.send_chat_action(call.message.chat.id, action='typing')
             data = stack.get_data(call.message.chat.id)
